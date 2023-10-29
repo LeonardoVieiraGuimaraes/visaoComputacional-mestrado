@@ -1,0 +1,22 @@
+falar sobre o objetivo na problematica
+enfase em dois trabalhos relacionados ao meu
+falar sobre o descritores dar enfase nos melhores 
+falar sobre os classificadores dar enfase nos melhores
+
+1 - introdução 
+	contextualização 
+	trabalho relacionados
+2 Referencial teorico 
+	descritores 
+	classificaores
+3 experimentos 
+	base de dados
+	resultados prelimiares 
+4 conclusões 
+	vantagens 
+	desvantagens
+	coninuidade
+
+
+bag of word
+kmeans

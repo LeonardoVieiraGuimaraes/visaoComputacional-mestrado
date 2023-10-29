@@ -1,0 +1,42 @@
+function [RegPlaca] = BoxCounting(ImEntrada)
+
+warning off;
+ RegDimens = struct( 'dimensao',	{0});
+/%                                 'placa', {0}, ...
+/%                                 'realcada', {0}, ...
+/%                                 'borda1', {0}, ...
+/%                                 'borda2', {0}, ...
+/%                                'aux', {0}, ...                                 
+/%                                 'contagem', {0}, ...                                    
+/%                                 'centro', {0});                             
+                             
+%Le a imagem de entrada e melhora contraste
+imagem = imread(ImEntrada);
+imagemAjust = imadjust(imagem,[min(min(im2double(imagem))) max(max(im2double(imagem)))],[0 1]);
+tamanho=size(imagemAjust);
+lower=tamanho(1);
+upper=tamanho(2);
+ n=1;
+ fim=0;
+ while(~fim)
+     for i=0:(2^n)-1	
+         if ((upper/(2^n))*(i+1) > (upper/(2^n))*i)
+             N{n}=N{n}+Contar(imagemAjust,(upper/(2^n))*i,(upper/(2^n))*(i+1))
+         else 
+             fim=1;
+             break;
+         end
+     end
+     n=n+1;
+ end  
+ NumberofSquare=N{1};
+ NumberofN=2;
+ for j=2:n-1
+      NumberofSquare=NumberofSquare * N[j];
+      NumberofN=NumberofN*(2^n);
+  end     
+Dimensao=log( NumberofSquare)/log(NumberofN);
+Dimensao    
+%RegPlaca.completa = ImRealcada2;
+                             
+    

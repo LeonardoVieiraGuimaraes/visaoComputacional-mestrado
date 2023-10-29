@@ -1,0 +1,32 @@
+%funçao para determinar se a area especificada pelos parametros contem
+%pixel ativo.
+%imagemEntrada: matriz que armazena a imagem que se deseja calcular a dimensao fractal
+%lowerW: ponto inicial do quadrado na horizontal
+%upperW: ponto final do quadrado na horizontal
+%lowerH: ponto inicial do quadrado na vertical
+%upperH: ponto final do quadrado na vertical
+%--------------------------------------------------------------------------
+%-
+
+function [Contagem] = Contar(imagemEntrada,lowerW,upperW,lowerH,upperH)
+warning off;
+Contagem = struct( 'number',	{0});
+contador=0;
+
+
+%imagemEntrada=im2uint16(imagemEntrada);
+
+for i=lowerW+1:upperW
+   for j=lowerH+1:upperH
+       i=int16(i);
+       j=int16(j);       
+        if (imagemEntrada(j,i)~=1)
+         
+           contador=1;
+           i=upperW+1;
+           break;
+       end
+   end
+end   
+
+Contagem.number=contador;
